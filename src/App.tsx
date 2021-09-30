@@ -1,5 +1,10 @@
-import React from 'react';
+import React from "react";
+import { GlobalStyle } from "./styles/global";
 
 export const App: React.FC = () => {
-  return <h1>tasd</h1>;
+  return (
+    <div>
+      <GlobalStyle />
+    </div>
+  );
 };
