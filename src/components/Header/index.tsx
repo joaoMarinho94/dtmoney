@@ -1,7 +1,7 @@
 import logoImg from "../../assets/logo.svg";
 import { Container, Content } from "./styles";
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
   return (
     <Container>
       <Content>
@@ -11,5 +11,3 @@ const Header: React.FC = () => {
     </Container>
   );
 };
-
-export default Header;
