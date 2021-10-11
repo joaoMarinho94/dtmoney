@@ -4,6 +4,7 @@ import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header";
 import { NewTransactionModal } from "./NewTransactionModal";
 import { GlobalStyle } from "./styles/global";
+import { TransactionsContext } from "./TransactionsContext";
 
 export const App: React.FC = () => {
   const [isnNewTransactionModalOpen, setIsnNewTransactionModalOpen] =
@@ -18,7 +19,7 @@ export const App: React.FC = () => {
   }
 
   return (
-    <>
+    <TransactionsContext.Provider value={[]}>
       <GlobalStyle />
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
       <Dashboard />
@@ -27,6 +28,6 @@ export const App: React.FC = () => {
         isOpen={isnNewTransactionModalOpen}
         onRequestClose={handleCloseNewTransactionModal}
       />
-    </>
+    </TransactionsContext.Provider>
   );
 };
