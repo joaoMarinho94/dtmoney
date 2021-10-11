@@ -6,6 +6,7 @@ import { Form, TransactionTypeContainer, RadioBox } from "./styles";
 import closeImg from "../assets/close.svg";
 import incomeImg from "../assets/income.svg";
 import outcomeImg from "../assets/outcome.svg";
+import api from "../services/api";
 
 Modal.setAppElement("#root");
 
@@ -24,8 +25,17 @@ export const NewTransactionModal: React.FC<Props> = ({
   const [category, setCategory] = useState("");
   const [value, setValue] = useState(0);
 
-  function handleCreateNewTransaction(e: FormEvent) {
+  async function handleCreateNewTransaction(e: FormEvent) {
     e.preventDefault();
+
+    const data = {
+      title,
+      category, 
+      value,
+      type
+    }
+
+    await api.post('/transactions', data)
   }
 
   return (
