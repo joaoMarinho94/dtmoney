@@ -30,7 +30,13 @@ export const NewTransactionModal: React.FC<Props> = ({
   async function handleCreateNewTransaction(e: FormEvent) {
     e.preventDefault();
 
-    createTransaction({ title, category, amount, type });
+    await createTransaction({ title, category, amount, type });
+
+    setTitle('')
+    setAmount(0)
+    setCategory('')
+    setType('deposit')
+    onRequestClose()
   }
 
   return (
